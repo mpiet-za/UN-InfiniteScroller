@@ -1,7 +1,9 @@
 
-using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Script to force camera to follow player.
+/// </summary>
 public class Stalker : MonoBehaviour {
 
     [SerializeField] private Transform player;
