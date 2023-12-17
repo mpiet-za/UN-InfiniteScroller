@@ -12,10 +12,6 @@ public class Control : MonoBehaviour {
     private bool keyL = false;
     private bool keyR = false;
     
-    void Start() {
-        
-    }
-
     void Update() {
         keyL = Input.GetKey(KeyCode.A) ? true : false;
         keyR = Input.GetKey(KeyCode.D) ? true : false;
