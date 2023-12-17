@@ -2,28 +2,26 @@
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Script to enable player movement.
+/// </summary>
 public class Control : MonoBehaviour {
 
-    [SerializeField]
-    private new Rigidbody rigidbody;
+    [SerializeField] private Rigidbody targetBody;
+    [SerializeField] private float movementSpeed = 600f;
+    [SerializeField] private float sidewaysForce = 400f;
 
-    [SerializeField]
-    private float speed = 600f;
-    [SerializeField]
-    private float glide = 400f;
-
-    private bool keyL = false;
-    private bool keyR = false;
+    private bool shouldGlideLeft = false;
+    private bool shouldGlideRight = false;
     
     void Update() {
-        keyL = Input.GetKey(KeyCode.A) ? true : false;
-        keyR = Input.GetKey(KeyCode.D) ? true : false;
+        shouldGlideLeft = Input.GetKey(KeyCode.A) ? true : false;
+        shouldGlideRight = Input.GetKey(KeyCode.D) ? true : false;
     }
 
     void FixedUpdate() {
-        
-        rigidbody.AddForce(0, 0, speed * Time.deltaTime);
-        if (keyL) rigidbody.AddForce(-glide * Time.deltaTime, 0, 0);
-        if (keyR) rigidbody.AddForce(+glide * Time.deltaTime, 0, 0);
+        targetBody.AddForce(0, 0, movementSpeed * Time.deltaTime);
+        if (shouldGlideLeft) targetBody.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);
+        if (shouldGlideRight) targetBody.AddForce(sidewaysForce * Time.deltaTime, 0, 0);
     }
 }
