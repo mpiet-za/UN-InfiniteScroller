@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Control : MonoBehaviour {
 
-    public new Rigidbody rigidbody;
+    [SerializeField]
+    private new Rigidbody rigidbody;
 
-    public float speed = 600f;
-    public float glide = 400f;
+    [SerializeField]
+    private float speed = 600f;
+    [SerializeField]
+    private float glide = 400f;
 
     private bool keyL = false;
     private bool keyR = false;

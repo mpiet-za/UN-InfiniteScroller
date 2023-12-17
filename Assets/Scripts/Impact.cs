@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Impact : MonoBehaviour {
 
-    public Control controller;
+    [SerializeField]
+    private Control controller;
 
     void OnCollisionEnter(Collision collision) {
         Debug.Log("Hit: " + collision.collider.tag);
