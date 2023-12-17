@@ -6,10 +6,10 @@ using UnityEngine;
 /// </summary>
 public class Stalker : MonoBehaviour {
 
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform targetObject;
     [SerializeField] private Vector3 cameraOffset;
     
     void Update() {
-        transform.position = player.position + cameraOffset;
+        transform.position = targetObject.position + cameraOffset;
     }
 }
